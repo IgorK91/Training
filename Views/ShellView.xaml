@@ -1,0 +1,36 @@
+﻿<Window x:Class="Training.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Training.Views"
+        mc:Ignorable="d"
+        Title="ShellView" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="349*"/>
+            <ColumnDefinition Width="45*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="Name" HorizontalAlignment="Center" Margin="-300,80,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.Column="1"/>
+        <ListView  Margin="210,80,0,100"  HorizontalAlignment="Center" HorizontalContentAlignment="Left"
+                   ItemsSource="{Binding Path=People}" Grid.Column="1" Width="359" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Header="№" Width="25" DisplayMemberBinding="{Binding Path= Count}" />
+                    <GridViewColumn  Header="Name" Width="190" DisplayMemberBinding="{Binding Path= Name}" />
+                    <GridViewColumn  Header="Date" Width="150" DisplayMemberBinding="{Binding Path= DataTime}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button  x:Name="AddText" Grid.Column="1" HorizontalAlignment="Center" Margin="-360,120,0,0" VerticalAlignment="Top">Добавить</Button>
+        <Button  x:Name="Save" Grid.Column="1" HorizontalAlignment="Center" Margin="-355,160,0,0" VerticalAlignment="Top" Click="Save_Click">Сохранить</Button>
+        <Button  x:Name="Download" Grid.Column="1" HorizontalAlignment="Center" Margin="-360,200,0,0" VerticalAlignment="Top">Загрузить</Button>
+        <Button  x:Name="ClearText" Grid.Column="1" HorizontalAlignment="Center" Margin="-360,240,0,0" VerticalAlignment="Top">Очистить</Button>
+        <Button  x:Name="DownloadBase" Grid.Column="1" HorizontalAlignment="Center" Margin="-312,280,0,0" VerticalAlignment="Top" >Загрузить из базы</Button>
+        <Button  x:Name="SaveBase" Grid.Column="1" HorizontalAlignment="Center" Margin="-317,320,0,0" VerticalAlignment="Top" >Сохранить в базу</Button>
+        <Button  x:Name="ClearBase" Grid.Column="1" HorizontalAlignment="Center" Margin="-290,360,0,0" VerticalAlignment="Top" >Очистить базу данных</Button>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Center" Margin="200,50,0,0" Text="Журнал записи имен" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="18"/>
+
+    </Grid>
+</Window>
